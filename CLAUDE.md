@@ -5,6 +5,7 @@ Python für alle Helpers/Skripte: `~/Developer/video-use/.venv/bin/python`.
 Skill: `~/.claude/skills/video-use` (SKILL.md + helpers/). Assets: `~/Developer/video-use-assets/` (Fonts, mediapipe-Modell).
 
 ## Arbeitsweise mit David
+Gilt universell für alle Claude-Sessions und alle Projekte, nicht nur für den Videoschnitt.
 - Immer direkt die am besten geeignete Lösung nennen und empfehlen, auch wenn David etwas anderes vorschlägt. Wenn sein Vorschlag ein Umweg ist, das offen sagen und den besseren Weg begründet empfehlen.
 - Einschränkungen der Umgebung (Upload-Limits, Cloud vs. lokal, fehlende Berechtigungen) sofort ansprechen, bevor er Zeit investiert.
 

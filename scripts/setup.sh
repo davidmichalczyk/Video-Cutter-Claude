@@ -55,7 +55,13 @@ mkdir -p "$ASSETS/brands" && cp -r "$REPO_ROOT/brands/." "$ASSETS/brands/"
 
 # 7. global working rules for all local Claude Code sessions (~/.claude/CLAUDE.md)
 mkdir -p ~/.claude && touch ~/.claude/CLAUDE.md
-grep -q "## Arbeitsweise mit David" ~/.claude/CLAUDE.md || { printf '\n'; cat "$REPO_ROOT/config/user-CLAUDE.md"; } >> ~/.claude/CLAUDE.md
+# replace an older copy of the block so updated rules always land
+"$PY" - "$REPO_ROOT/config/user-CLAUDE.md" <<'EOF'
+import os, re, sys
+p = os.path.expanduser("~/.claude/CLAUDE.md"); s = open(p).read()
+s = re.sub(r"\n?## Arbeitsweise mit David.*?(?=\n## |\Z)", "", s, flags=re.S).rstrip()
+open(p, "w").write((s + "\n\n" if s else "") + open(sys.argv[1]).read())
+EOF
 
 # 8. smoke test
 "$PY" - "$ASSETS" <<'EOF'
