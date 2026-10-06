@@ -1,6 +1,7 @@
 # Reel-Schnitt mit video-use
 
-Setup: `bash scripts/setup.sh`, danach ElevenLabs-Key in `~/Developer/video-use/.env` (nie committen).
+Setup (macOS oder Linux): `bash scripts/setup.sh`, danach ElevenLabs-Key in `~/Developer/video-use/.env` (nie committen).
+Python für alle Helpers/Skripte: `~/Developer/video-use/.venv/bin/python`.
 Skill: `~/.claude/skills/video-use` (SKILL.md + helpers/). Assets: `~/Developer/video-use-assets/` (Fonts, mediapipe-Modell).
 
 ## Vor jedem Reel
