@@ -36,4 +36,9 @@ cd "$ASSETS/models"
 test -f selfie_multiclass_256x256.tflite || curl -sSfLO \
   https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite
 
+
+# 6. brand logos + config from this repo
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+mkdir -p "$ASSETS/brands" && cp -r "$REPO_ROOT/brands/." "$ASSETS/brands/"
+
 echo "setup done. ElevenLabs key: printf 'ELEVENLABS_API_KEY=%s\n' \"\$KEY\" > $REPO/.env && chmod 600 $REPO/.env"

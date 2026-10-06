@@ -1,0 +1,29 @@
+{
+  "dafits": {
+    "name": "DaFITs",
+    "website": "https://www.dafits.net",
+    "instagram": "@dafits_ludwigsburg",
+    "logo_outro": "brands/dafits/logo.png",
+    "caption_accent_1": "#D0B890",
+    "caption_accent_2": "#A3826C",
+    "notes": "Logo weiß + Sand-Gold, sauber auf Schwarz. Zielgruppe: Premium Personal Training."
+  },
+  "yan": {
+    "name": "Young Athletic Nation",
+    "website": "https://www.youngathleticnation.de",
+    "instagram": "@youngathleticnation",
+    "logo_outro": "brands/yan/logo.png",
+    "caption_accent_1": "#D43207",
+    "caption_accent_2": "#FFD23F",
+    "notes": "Logo aus dem Flyer-Header der Website freigestellt (weiß + Rot). Zielgruppe: Eltern von 8-16-jährigen Athleten."
+  },
+  "room14": {
+    "name": "ROOM14 Reformer Pilates",
+    "website": "https://www.room-14.de",
+    "instagram": "@room14_reformer_pilates",
+    "logo_outro": "brands/room14/logo_white.png",
+    "caption_accent_1": "#C4BFD1",
+    "caption_accent_2": "#E5E0DA",
+    "notes": "Website-Logo ist dunkelgrau und nur 402 px breit -> für Outro weiß eingefärbt; höher aufgelöstes Original wäre besser. Zielgruppe: Frauen 25-50."
+  }
+}
