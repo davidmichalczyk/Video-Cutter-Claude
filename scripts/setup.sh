@@ -12,9 +12,21 @@ OS="$(uname -s)"
 
 # 1. system tools: ffmpeg, uv (python env manager)
 if [ "$OS" = "Darwin" ]; then
-  command -v brew >/dev/null || { echo "Homebrew fehlt: https://brew.sh installieren, dann Skript erneut starten."; exit 1; }
-  command -v ffmpeg >/dev/null || brew install ffmpeg
-  command -v uv >/dev/null || brew install uv
+  # Prebuilt binaries instead of Homebrew: on older macOS versions Homebrew
+  # compiles ffmpeg + ~25 deps from source (hours). These builds include
+  # libx265, zscale/zimg and libass.
+  BIN=~/.local/bin; mkdir -p "$BIN"
+  case "$(uname -m)" in arm64) FFARCH=arm64 ;; *) FFARCH=amd64 ;; esac
+  for b in ffmpeg ffprobe; do
+    if ! "$BIN/$b" -version >/dev/null 2>&1; then
+      curl -sSfL -o "/tmp/$b.zip" "https://ffmpeg.martin-riedl.de/redirect/latest/macos/$FFARCH/release/$b.zip"
+      unzip -o -q "/tmp/$b.zip" -d "$BIN" && rm "/tmp/$b.zip" && chmod +x "$BIN/$b"
+      xattr -d com.apple.quarantine "$BIN/$b" 2>/dev/null || true
+    fi
+  done
+  command -v uv >/dev/null || [ -x "$BIN/uv" ] || curl -LsSf https://astral.sh/uv/install.sh | sh
+  grep -q 'HOME/.local/bin' ~/.zprofile 2>/dev/null || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zprofile
+  export PATH="$BIN:$PATH"
   FONT_DIR=~/Library/Fonts
 else
   command -v ffmpeg >/dev/null || (apt-get update && apt-get install -y ffmpeg)
