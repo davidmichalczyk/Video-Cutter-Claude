@@ -53,7 +53,11 @@ test -f selfie_multiclass_256x256.tflite || curl -sSfLO \
 # 6. brand logos + config from this repo
 mkdir -p "$ASSETS/brands" && cp -r "$REPO_ROOT/brands/." "$ASSETS/brands/"
 
-# 7. smoke test
+# 7. global working rules for all local Claude Code sessions (~/.claude/CLAUDE.md)
+mkdir -p ~/.claude && touch ~/.claude/CLAUDE.md
+grep -q "## Arbeitsweise mit David" ~/.claude/CLAUDE.md || { printf '\n'; cat "$REPO_ROOT/config/user-CLAUDE.md"; } >> ~/.claude/CLAUDE.md
+
+# 8. smoke test
 "$PY" - "$ASSETS" <<'EOF'
 import sys
 from mediapipe.tasks.python import vision, BaseOptions

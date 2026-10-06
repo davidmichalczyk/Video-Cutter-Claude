@@ -4,6 +4,10 @@ Setup (macOS oder Linux): `bash scripts/setup.sh`, danach ElevenLabs-Key in `~/D
 Python für alle Helpers/Skripte: `~/Developer/video-use/.venv/bin/python`.
 Skill: `~/.claude/skills/video-use` (SKILL.md + helpers/). Assets: `~/Developer/video-use-assets/` (Fonts, mediapipe-Modell).
 
+## Arbeitsweise mit David
+- Immer direkt die am besten geeignete Lösung nennen und empfehlen, auch wenn David etwas anderes vorschlägt. Wenn sein Vorschlag ein Umweg ist, das offen sagen und den besseren Weg begründet empfehlen.
+- Einschränkungen der Umgebung (Upload-Limits, Cloud vs. lokal, fehlende Berechtigungen) sofort ansprechen, bevor er Zeit investiert.
+
 ## Vor jedem Reel
 **Immer zuerst kurz fragen, für welches Unternehmen das Reel ist** (DaFITs, Young Athletic Nation oder ROOM14).
 Logo, Handle und Caption-Akzentfarben kommen aus `brands/brands.json` — nie zwischen Marken mischen.
